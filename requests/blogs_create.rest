@@ -1,0 +1,11 @@
+# Create a valid blog entry
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VuYWxkbyIsImlkIjoiNjQwYmU0MDZiZmQ2NTY3NGY2Y2I5YjBhIiwiaWF0IjoxNjc4NTU1NjI2fQ.fWBhCSi60T8mIjJTjQr7lwZKnnaQ0Pdxh9L5AilORKk
+
+{
+  "title": "Programação Orientada a Gambiarra",
+  "author": "Josenaldo de Oliveira Matos Filho",
+  "url": "http://livropog.com.br",
+  "likes": 12
+}

@@ -1,0 +1,31 @@
+# Login with correct user and password must return 200
+post http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "josenaldo",
+  "password": "minhasenha"
+}
+
+###
+
+# Login with wrong user must return 401
+post http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "pedro",
+  "password": "minhasenha"
+}
+
+###
+
+# Login with wrong password must return 401
+post http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "josenaldo",
+  "password": "outrasenha"
+}
+

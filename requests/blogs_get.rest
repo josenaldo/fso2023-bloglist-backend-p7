@@ -1,0 +1,4 @@
+# Getting without query parameters will return all the entries a 200
+# status code.
+GET http://localhost:3003/api/blogs/6387d41bcbd199a64a5b905f
+

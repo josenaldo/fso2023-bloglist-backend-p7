@@ -1,0 +1,11 @@
+# Create a valid blog entry
+PUT http://localhost:3003/api/blogs/640cbb92ec1686be6426c46d
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VuYWxkbyIsImlkIjoiNjQwYmU0MDZiZmQ2NTY3NGY2Y2I5YjBhIiwiaWF0IjoxNjc4NTU1NjI2fQ.fWBhCSi60T8mIjJTjQr7lwZKnnaQ0Pdxh9L5AilORKk
+
+{
+  "title": "Gambi Design Patterns",
+  "author": "Josenaldo de Oliveira Matos Filho",
+  "url": "http://livrogambi.com.br",
+  "likes": 34
+}

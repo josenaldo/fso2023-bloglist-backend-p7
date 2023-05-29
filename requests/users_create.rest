@@ -1,0 +1,33 @@
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "name": "Josenaldo Matos",
+    "username": "josenaldo",
+    "password": "minhasenha"
+}
+
+###
+
+# Create another new user
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "name": "Cassiana Gabriela Lima Barreto",
+    "username": "cassiana",
+    "password": "minhasenha"
+}
+
+
+####
+
+# Create another new user
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "name": "Demo User",
+    "username": "demo",
+    "password": "demopassword"
+}
