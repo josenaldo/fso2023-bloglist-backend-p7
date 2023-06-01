@@ -88,7 +88,7 @@ blogsRouter.put('/:id', middleware.requireAuth, async (request, response) => {
 })
 
 blogsRouter.post(
-  '/:id/likes',
+  '/:id/like',
   middleware.requireAuth,
   async (request, response) => {
     const blogToUpdate = await Blog.findById(request.params.id)
