@@ -2,6 +2,10 @@
 /* eslint-disable no-param-reassign */
 const mongoose = require('mongoose')
 
+const commentSchema = new mongoose.Schema({
+  content: String,
+})
+
 const blogSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -24,11 +28,18 @@ const blogSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  comments: [commentSchema],
 })
 
 blogSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
+
+    returnedObject.comments = returnedObject.comments.map((comment) => ({
+      id: comment._id.toString(),
+      content: comment.content,
+    }))
+
     delete returnedObject._id
     delete returnedObject.__v
   },

@@ -1,0 +1,34 @@
+# Create a valid blog comment
+POST http://localhost:3003/api/blogs/647532431944fa37b32cf8c3/comments
+Content-Type: application/json
+
+{
+  "content": "I like this blog!"
+}
+
+###
+
+POST http://localhost:3003/api/blogs/647532431944fa37b32cf8c3/comments
+Content-Type: application/json
+
+{
+  "content": "I hate this blog because it's too long!"
+}
+
+###
+
+POST http://localhost:3003/api/blogs/647532431944fa37b32cf8c3/comments
+Content-Type: application/json
+
+{
+  "content": "I don't like this blog because it's too short!"
+}
+
+
+###
+POST http://localhost:3003/api/blogs/647532431944fa37b32cf8c3/comments
+Content-Type: application/json
+
+{
+  "content": "I don't know what to say about this blog!"
+}
