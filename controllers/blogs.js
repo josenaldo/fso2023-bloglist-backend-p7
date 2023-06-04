@@ -109,6 +109,10 @@ blogsRouter.post(
 blogsRouter.post('/:id/comments', async (request, response) => {
   const { content } = request.body
 
+  if (!content) {
+    return response.status(400).json({ error: 'content is required' })
+  }
+
   const blogToUpdate = await Blog.findById(request.params.id)
 
   if (!blogToUpdate) {
