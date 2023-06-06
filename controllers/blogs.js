@@ -100,6 +100,7 @@ blogsRouter.post(
     blogToUpdate.likes += 1
 
     const updatedBlog = await blogToUpdate.save()
+
     await updatedBlog.populate('user')
 
     response.json(updatedBlog)

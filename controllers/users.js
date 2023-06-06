@@ -3,10 +3,15 @@ const usersRouter = require('express').Router()
 const middleware = require('../utils/middleware')
 const User = require('../models/user')
 
-usersRouter.get('/', async (request, response) => {
-  const users = await User.find({}).populate('blogs')
-  response.json(users)
-})
+usersRouter.get(
+  '/',
+  middleware.userExtractor,
+  middleware.requireAuth,
+  async (request, response) => {
+    const users = await User.find({}).populate('blogs')
+    response.json(users)
+  }
+)
 
 usersRouter.get('/:id', async (request, response) => {
   const user = await User.findById(request.params.id).populate('blogs')

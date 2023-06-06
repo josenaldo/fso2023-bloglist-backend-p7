@@ -31,6 +31,11 @@ const errorHandler = (error, request, response, next) => {
     return
   }
 
+  if (error.name === 'JsonWebTokenError') {
+    response.status(401).json({ error: 'invalid token' })
+    return
+  }
+
   next(error)
 }
 
@@ -39,6 +44,12 @@ const tokenExtractor = (request, response, next) => {
 
   if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
     request.token = authorization.substring(7)
+
+    if (!request.token) {
+      const error = new Error('invalid token')
+      error.name = 'JsonWebTokenError'
+      throw error
+    }
   } else {
     request.token = null
   }
@@ -59,8 +70,9 @@ const userExtractor = (request, response, next) => {
 
 const requireAuth = (request, response, next) => {
   if (!request.user) {
-    response.status(401).json({ error: 'unauthorized access' })
+    return response.status(401).json({ error: 'unauthorized access' })
   }
+
   next()
 }
 
